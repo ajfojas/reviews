@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Summary from '../client/src/components/Summary.jsx';
+import Summary from '../client/components/Summary.jsx';
 import StarRatings from 'react-star-ratings';
 
 describe('Summary component', () => {
@@ -57,7 +57,7 @@ describe('Summary component', () => {
     expect(wrapper.find(StarRatings)).toHaveLength(7);
   });
 
-  it('displays how many people have mentioned the searched term', () => {
+  it('displays how many people have mentioned the searched term using correct grammar', () => {
     const wrapper1 = shallow(<Summary allStates={filtered1States} />);
     const wrapper3 = shallow(<Summary allStates={filtered3States} />);
     expect(wrapper1.find('#filtered-search').text()).toEqual('1 guest has mentioned "hello1"Back to all reviews');

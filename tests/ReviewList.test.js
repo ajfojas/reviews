@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import ReviewList from '../client/src/components/ReviewList';
+import ReviewList from '../client/components/ReviewList';
 
 describe('ReviewList component', () => {
   const states = {
