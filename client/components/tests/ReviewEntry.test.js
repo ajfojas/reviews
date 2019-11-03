@@ -24,38 +24,25 @@ describe('ReviewEntry component', () => {
     host_pic: 'pic',
   };
 
-  const listingUser = {
+  mockAxios.get.mockImplementation(() => Promise.resolve({
     data: [{
       id: 1,
       name: 'name',
       pic: 'pic',
       comment: '',
     }],
-  };
+  }))
 
-  const reviewResponse = {
-    data: [{
-      id: 1,
-    }],
-  };
-
-  // const axios = {
-  //   get: jest.fn(() => Promise.resolve({
-  //     data: null,
-  //   })),
-  // };
-
-  // it('renders successfully', () => {
-  //   shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
-  // });
+  it('renders successfully', () => {
+    shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+  });
 
   it('calls axios to fetch user and response data', () => {
-    mockAxios.get.mockImplementationOnce(() => Promise.resolve({
-
-    }))
-
     const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
 
-    console.log(wrapper)
+    expect(wrapper).toEqual({})
+    expect(mockAxios.get).toHaveBeenCalledTimes(2);
+    expect(mockAxios.get).toHaveBeenNthCalledWith(1, '/api/listings/users/71')
+    expect(mockAxios.get).toHaveBeenNthCalledWith(2, '/api/listings/review/response/54');
   });
 });
