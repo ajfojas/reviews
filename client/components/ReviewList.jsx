@@ -15,7 +15,7 @@ class ReviewList extends React.Component {
 
     return(
       <div>
-        {displayReviews.map(review => <ReviewEntry key={review.id} reviewEntry={review} hostInfo={this.props.allStates.host} />)}
+        {displayReviews.map(review => <ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={this.props.allStates.host} />)}
       </div>
     )
   }
