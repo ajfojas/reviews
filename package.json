@@ -4,7 +4,7 @@
   "description": "",
   "jest": {
     "setupFilesAfterEnv": [
-      "<rootDir>tests/setupTests.js"
+      "<rootDir>client/components/tests/setupTests.js"
     ],
     "clearMocks": true,
     "coverageDirectory": "coverage",

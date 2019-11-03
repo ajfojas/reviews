@@ -73,71 +73,66 @@ class ReviewEntry extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.reviewEntry) {
-      const userID = this.props.reviewEntry.users_id;
-      axios.get(`/api/listings/users/${userID}`)
-        .then((listingUser) => {
+    const userID = this.props.reviewEntry.users_id;
+    axios.get(`/api/listings/users/${userID}`)
+      .then((listingUser) => {
+        this.setState({
+          user: listingUser.data[0],
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    const responseID = this.props.reviewEntry.responses_id;
+    if (responseID) {
+      axios.get(`/api/listings/review/response/${responseID}`)
+        .then((reviewResponse) => {
           this.setState({
-            user: listingUser.data[0],
+            response: reviewResponse.data[0].comment,
           });
         })
         .catch((error) => {
           console.log(error);
         });
-
-      const responseID = this.props.reviewEntry.responses_id;
-      if (responseID) {
-        axios.get(`/api/listings/review/response/${responseID}`)
-          .then((reviewResponse) => {
-            this.setState({
-              response: reviewResponse.data[0].comment,
-            });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      }
     }
   }
 
   render() {
-    let date = '';
     let response = '';
-    let comment = ''
 
-    if (this.props.reviewEntry) {
-      date = this.props.reviewEntry.date;
-      if (this.props.reviewEntry.responses_id) {
-        response = (
-          <ResponseBlock>
-            <ResponseProfilePic src={this.props.hostInfo.host_pic} alt="" />
-            <NameResponseDate>
-              <Name>
-                Response from {this.props.hostInfo.host_name}:
-              </Name>
-              <div>
-                {this.state.response}
-              </div>
-              <ResponseDate>
-                {date}
-              </ResponseDate>
-            </NameResponseDate>
-          </ResponseBlock>
-        );
-      }
-      comment = this.props.reviewEntry.comment;
-      if (comment.length > 200) {
-        comment = (
+    if (this.props.reviewEntry.responses_id) {
+      response = (
+        <ResponseBlock>
+          <ResponseProfilePic src={this.props.hostInfo.host_pic} alt="" />
+          <NameResponseDate>
+            <Name>
+              Response from {this.props.hostInfo.host_name}:
+            </Name>
+            <div>
+              {this.state.response}
+            </div>
+            <ResponseDate>
+              {this.props.reviewEntry.date}
+            </ResponseDate>
+          </NameResponseDate>
+        </ResponseBlock>
+      );
+    }
+
+    let comment = this.props.reviewEntry.comment;
+
+    if (comment.length > 200) {
+      comment = (
+        <span>
           <span>
-            <span>
-              {comment.slice(0, 200)}...
-            </span>
-            <ReadMore onClick={this.readMore}>
-              Read more
-            </ReadMore>
+            {comment.slice(0, 200)}...
           </span>
-        );
-      }
+          <ReadMore onClick={this.readMore}>
+            Read more
+          </ReadMore>
+        </span>
+      );
     }
 
     if (this.state.commentExpanded) {
@@ -153,7 +148,7 @@ class ReviewEntry extends React.Component {
               {this.state.user.name}
             </Name>
             <div>
-              {date}
+              {this.props.reviewEntry.date}
             </div>
           </NameDate>
         </div>

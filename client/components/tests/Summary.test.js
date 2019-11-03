@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Summary from '../client/components/Summary.jsx';
+import Summary from '../Summary.jsx';
 import StarRatings from 'react-star-ratings';
 
 describe('Summary component', () => {
