@@ -2,6 +2,11 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import ReviewEntry from '../ReviewEntry.jsx';
 import mockAxios from 'axios';
+import styled from 'styled-components';
+
+const ReadMore = styled.span`
+  color: #008489;
+`;
 
 describe('ReviewEntry component', () => {
   const review = {
@@ -46,16 +51,15 @@ describe('ReviewEntry component', () => {
       pic: 'pic',
       comment: 'comment',
     }],
-  }))
+  }));
 
   it('renders successfully', () => {
     shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
   });
 
   it('calls axios to fetch user and response data', () => {
-    const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+    shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
 
-    expect(wrapper).toEqual({})
     expect(mockAxios.get).toHaveBeenCalledTimes(2);
     expect(mockAxios.get).toHaveBeenNthCalledWith(1, '/api/listings/users/71')
     expect(mockAxios.get).toHaveBeenNthCalledWith(2, '/api/listings/review/response/54');
@@ -77,12 +81,38 @@ describe('ReviewEntry component', () => {
     expect(wrapper2.find('#read-more')).toHaveLength(0);
   });
 
+  it('expands truncated review', () => {
+    const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+    expect(wrapper.find('#comment').text()).toEqual('start comment ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- end co...Read more');
+
+    wrapper.find('#read-more').simulate('click', {target: {commentExpanded: true}});
+    expect(wrapper.state().commentExpanded).toEqual(true);
+    expect(wrapper.find('#comment').text()).toEqual('start comment ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- end comment');
+  });
+
   it('displays review', () => {
     const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
 
     expect(wrapper.find('#profile-pic')).toHaveLength(1);
     expect(wrapper.find('#name').text()).toEqual('');
     expect(wrapper.find('#date').text()).toEqual('date');
-    expect(wrapper.find('#comment').text()).toEqual('start comment ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- end co...Read more');
   });
+
+  it('catches any thrown errors', () => {
+    mockAxios.get.mockImplementation(() => Promise.reject({
+      data: [{
+        id: 1,
+        name: 'name',
+        pic: 'pic',
+        comment: 'comment',
+      }],
+    }));
+
+    const app = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+
+    app.instance().componentDidMount()
+    expect(app.state('user')).toEqual({})
+    expect(app.state('response')).toEqual('')
+  });
+
 });
