@@ -8,9 +8,24 @@ describe('ReviewEntry component', () => {
     accuracy: 5,
     checkin: 5,
     cleanliness: 3,
-    comment: '',
+    comment: 'start comment ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- end comment',
     communication: 4,
-    date: 'September 2019',
+    date: 'date',
+    id: 1,
+    listings_id: 50,
+    location: 1,
+    responses_id: 54,
+    users_id: 71,
+    value: 3,
+  };
+
+  const review2 = {
+    accuracy: 5,
+    checkin: 5,
+    cleanliness: 3,
+    comment: 'comment',
+    communication: 4,
+    date: 'date',
     id: 1,
     listings_id: 50,
     location: 1,
@@ -20,8 +35,8 @@ describe('ReviewEntry component', () => {
   };
 
   const host = {
-    host_name: 'name',
-    host_pic: 'pic',
+    host_name: 'host name',
+    host_pic: 'host pic',
   };
 
   mockAxios.get.mockImplementation(() => Promise.resolve({
@@ -29,7 +44,7 @@ describe('ReviewEntry component', () => {
       id: 1,
       name: 'name',
       pic: 'pic',
-      comment: '',
+      comment: 'comment',
     }],
   }))
 
@@ -44,5 +59,30 @@ describe('ReviewEntry component', () => {
     expect(mockAxios.get).toHaveBeenCalledTimes(2);
     expect(mockAxios.get).toHaveBeenNthCalledWith(1, '/api/listings/users/71')
     expect(mockAxios.get).toHaveBeenNthCalledWith(2, '/api/listings/review/response/54');
+  });
+
+  it('displays host\'s response to review', () => {
+    const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+
+    expect(wrapper.find('#response-profile-pic')).toHaveLength(1);
+    expect(wrapper.find('#response-date').text()).toEqual('date');
+  });
+
+  it('displays truncated review', () => {
+    const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+
+    const wrapper2 = shallow(<ReviewEntry className='review-entry' key={review2.id} reviewEntry={review2} hostInfo={host} />);
+
+    expect(wrapper.find('#read-more')).toHaveLength(1);
+    expect(wrapper2.find('#read-more')).toHaveLength(0);
+  });
+
+  it('displays review', () => {
+    const wrapper = shallow(<ReviewEntry className='review-entry' key={review.id} reviewEntry={review} hostInfo={host} />);
+
+    expect(wrapper.find('#profile-pic')).toHaveLength(1);
+    expect(wrapper.find('#name').text()).toEqual('');
+    expect(wrapper.find('#date').text()).toEqual('date');
+    expect(wrapper.find('#comment').text()).toEqual('start comment ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- end co...Read more');
   });
 });

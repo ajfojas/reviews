@@ -104,7 +104,7 @@ class ReviewEntry extends React.Component {
     if (this.props.reviewEntry.responses_id) {
       response = (
         <ResponseBlock>
-          <ResponseProfilePic src={this.props.hostInfo.host_pic} alt="" />
+          <ResponseProfilePic id='response-profile-pic' src={this.props.hostInfo.host_pic} alt="" />
           <NameResponseDate>
             <Name>
               Response from {this.props.hostInfo.host_name}:
@@ -112,7 +112,7 @@ class ReviewEntry extends React.Component {
             <div>
               {this.state.response}
             </div>
-            <ResponseDate>
+            <ResponseDate id='response-date'>
               {this.props.reviewEntry.date}
             </ResponseDate>
           </NameResponseDate>
@@ -128,7 +128,7 @@ class ReviewEntry extends React.Component {
           <span>
             {comment.slice(0, 200)}...
           </span>
-          <ReadMore onClick={this.readMore}>
+          <ReadMore id='read-more' onClick={this.readMore}>
             Read more
           </ReadMore>
         </span>
@@ -142,17 +142,17 @@ class ReviewEntry extends React.Component {
     return (
       <Block>
         <div>
-          <ProfilePic src={this.state.user.pic} alt="" />
+          <ProfilePic id='profile-pic' src={this.state.user.pic} alt="" />
           <NameDate>
-            <Name>
+            <Name id='name'>
               {this.state.user.name}
             </Name>
-            <div>
+            <div id='date'>
               {this.props.reviewEntry.date}
             </div>
           </NameDate>
         </div>
-        <div>
+        <div id='comment'>
           {comment}
         </div>
         <div>
