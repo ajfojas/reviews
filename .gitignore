@@ -26,4 +26,3 @@ build/
 public/bundle.js
 public/bundle.js.br
 public/bundle.js.gz
-.coveralls.yml
