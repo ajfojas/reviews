@@ -1,14 +1,8 @@
 # Reviews - MincTech [![Known Vulnerabilities](https://snyk.io/test/github/ajfojas/reviews/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ajfojas/reviews?targetFile=package.json) [![CircleCI](https://circleci.com/gh/ajfojas/reviews.svg?style=shield)](https://circleci.com/gh/ajfojas/reviews) [![codecov](https://codecov.io/gh/ajfojas/reviews/branch/master/graph/badge.svg)](https://codecov.io/gh/ajfojas/reviews)
 
-Reviews list microservice for lodging and hotel web application. Built with React, Express, and MySQL. Supports pagination and filtering based on terms searched.
+Reviews list microservice demonstration and design for a lodging and hotel web page. Built with React, Express, and MySQL. Supports pagination and filtering based on terms searched.
 
 ![](https://i.imgur.com/HeaKibu.gif)
-
-## Related Projects
-
-  - https://github.com/minctech/
-  - https://github.com/minctech/images
-  - https://github.com/minctech/reservations
 
 ## Table of Contents
 
@@ -22,7 +16,7 @@ Explore the list of reviews by clicking on the pagination tabs. Filter reviews b
 
 ## Requirements
 
-- Node 10.15.3 or higher
+- Node 6.13.0 or higher
 
 ## Development
 
