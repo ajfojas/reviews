@@ -1,8 +1,4 @@
-[![Known Vulnerabilities](https://snyk.io/test/github/ajfojas/reviews/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ajfojas/reviews?targetFile=package.json)
-
-[![CircleCI](https://circleci.com/gh/ajfojas/reviews.svg?style=shield)](https://circleci.com/gh/ajfojas/reviews)
-
-# Reviews - MincTech
+# Reviews - MincTech [![Known Vulnerabilities](https://snyk.io/test/github/ajfojas/reviews/badge.svg?targetFile=package.json)](https://snyk.io/test/github/ajfojas/reviews?targetFile=package.json) [![CircleCI](https://circleci.com/gh/ajfojas/reviews.svg?style=shield)](https://circleci.com/gh/ajfojas/reviews)
 
 Reviews list microservice for lodging and hotel web application. Built with React, Express, and MySQL. Supports pagination and filtering based on terms searched.
 
