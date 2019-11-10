@@ -17,5 +17,5 @@ RUN npm install
 EXPOSE 3210
 
 # How do you start your app?
-CMD npm run seeder && \
+CMD npm run seed && \
     node server/index.js
