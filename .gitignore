@@ -23,6 +23,8 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 
+.vscode
+
 public/bundle.js
 public/bundle.js.br
 public/bundle.js.gz

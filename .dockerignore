@@ -1,7 +1,8 @@
+.circleci
 .vscode
+client/__mocks__
+client/components/tests
 coverage
 node_modules
-tests
 .eslintrc.js
 .gitignore
-npm-debug.log
