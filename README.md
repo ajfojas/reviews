@@ -2,6 +2,8 @@
 
 Reviews list microservice demonstration and design for a lodging and hotel web page. Built with React, Express, and MySQL. Supports pagination and filtering based on terms searched.
 
+> [Interactive Demo](http://ec2-54-67-92-32.us-west-1.compute.amazonaws.com:3210/listings/1/) - Navigate between listings 1 through 100 via url (/listings/:listing_id/)
+
 ![](https://i.imgur.com/HeaKibu.gif)
 
 ## Table of Contents
