@@ -27,6 +27,7 @@
   "scripts": {
     "build": "webpack -d -p --watch --mode=development",
     "start": "nodemon server/index.js",
+    "db": "mysql -u root -p < schema.sql",
     "seed": "node database/seeder.js",
     "test": "jest --coverage"
   },
