@@ -6,13 +6,6 @@ import ReviewList from './ReviewList.jsx';
 import styled from 'styled-components';
 import ReactPaginate from 'react-paginate';
 
-const BaseStyle = styled.div`
-  width: 648px;
-  color: #484848;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
-  padding: 0 0 0 10%;
-`;
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -165,3 +158,11 @@ class App extends React.Component {
 }
 
 export default App;
+
+// Styling
+const BaseStyle = styled.div`
+  width: 648px;
+  color: #484848;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+  padding: 0 0 0 10%;
+`;

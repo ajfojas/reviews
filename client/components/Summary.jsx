@@ -3,56 +3,6 @@ import StarRatings from 'react-star-ratings';
 import Search from './Search.jsx';
 import styled from 'styled-components';
 
-const Block = styled.div`
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
-`;
-
-const BlockNoBorder = styled.div`
-  padding: 10px 0;
-`;
-
-const TotalReviews = styled.span`
-  font-size: 24px;
-  font-weight: bold;
-  padding-right: 12px;
-`;
-
-const AccuracyRating = styled.span`
-  display: inline-block;
-  padding: 10px 125px 10px 0;
-`;
-
-const LocationRating = styled.span`
-  display: inline-block;
-  padding: 10px 125px 10px 25px;
-`;
-
-const CommunicationRating = styled.span`
-  display: inline-block;
-  padding: 10px 80px 10px 0px;
-`;
-
-const CheckinRating = styled.span`
-  display: inline-block;
-  padding: 10px 122px 10px 25px;
-`;
-
-const CleanlinessRating = styled.span`
-  display: inline-block;
-  padding: 10px 109px 10px 0;
-`;
-const ValueRating = styled.span`
-  display: inline-block;
-  padding: 10px 145px 10px 25px;
-`;
-
-const BackToAllReviews = styled.span`
-  float: right;
-  color: #008489;
-  font-size: 14px;
-`;
-
 class Summary extends React.Component {
   constructor(props) {
     super(props);
@@ -157,3 +107,54 @@ class Summary extends React.Component {
 }
 
 export default Summary;
+
+// Styling
+const Block = styled.div`
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+`;
+
+const BlockNoBorder = styled.div`
+  padding: 10px 0;
+`;
+
+const TotalReviews = styled.span`
+  font-size: 24px;
+  font-weight: bold;
+  padding-right: 12px;
+`;
+
+const AccuracyRating = styled.span`
+  display: inline-block;
+  padding: 10px 125px 10px 0;
+`;
+
+const LocationRating = styled.span`
+  display: inline-block;
+  padding: 10px 125px 10px 25px;
+`;
+
+const CommunicationRating = styled.span`
+  display: inline-block;
+  padding: 10px 80px 10px 0px;
+`;
+
+const CheckinRating = styled.span`
+  display: inline-block;
+  padding: 10px 122px 10px 25px;
+`;
+
+const CleanlinessRating = styled.span`
+  display: inline-block;
+  padding: 10px 109px 10px 0;
+`;
+const ValueRating = styled.span`
+  display: inline-block;
+  padding: 10px 145px 10px 25px;
+`;
+
+const BackToAllReviews = styled.span`
+  float: right;
+  color: #008489;
+  font-size: 14px;
+`;
