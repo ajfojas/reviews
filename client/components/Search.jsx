@@ -1,20 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SearchBar = styled.form`
-  display: inline;
-  float: right;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-
-`;
-
-const SearchInput = styled.input`
-  border: none;
-  outline: none;
-  font-family: inherit;
-`;
-
 class Search extends React.Component {
   constructor(props) {
     super(props);
@@ -38,3 +24,19 @@ class Search extends React.Component {
 }
 
 export default Search;
+
+// Styling
+const SearchBar = styled.form`
+  display: inline;
+  float: right;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+`;
+
+const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+`;
