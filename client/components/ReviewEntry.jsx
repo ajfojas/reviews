@@ -165,6 +165,9 @@ const ResponseDate = styled.div`
 
 const ReadMore = styled.span`
   color: #008489;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const Date = styled.div`
