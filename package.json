@@ -32,11 +32,11 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "body-parser": "^1.19.0",
+    "axios": "^1.13.5",
+    "body-parser": "^1.20.4",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.22.0",
     "faker": "^4.1.0",
     "jquery": "^3.4.1",
     "morgan": "^1.9.1",
